@@ -1,0 +1,12 @@
+body {
+    font-family: Helvetica, Arial,"PingFang SC","Hiragino Sans GB","Source Han Sans CN",Roboto,"Heiti SC","Microsoft Yahei",sans-serif;
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.container h2 {
+    text-align: center;
+}
