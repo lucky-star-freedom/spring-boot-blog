@@ -2,11 +2,21 @@ body {
     font-family: Helvetica, Arial,"PingFang SC","Hiragino Sans GB","Source Han Sans CN",Roboto,"Heiti SC","Microsoft Yahei",sans-serif;
 }
 
-.container {
-    width: 800px;
-    margin: 0 auto;
+.intro-header {
+    position: relative;
+    background-color: #333333;
+    z-index: 1;
 }
 
-.container h2 {
-    text-align: center;
+.intro-header:after {
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: "";
+    background-image: url("../img/background.jpeg");
+    z-index: -1;
+    opacity: .2;
 }

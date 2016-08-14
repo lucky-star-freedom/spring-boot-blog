@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="home/head :: appHead">
+    <title id="pageTitle">Home</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top"
+         th:include="home/navbar"></nav>
+
+    <header class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Blog</h1>
+                        <hr class="small" />
+                        <span class="subheading">Blog powered by Spring Boot</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!--may use backbone template-->
+                <div class="post-preview">
+                    <a href="#">
+                        <h2 class="post-title">
+                            Backbone is great
+                        </h2>
+
+                        <h3 class="post-subtitle">
+                            Backbone is a wonderful Javascript MVC framework
+                        </h3>
+                    </a>
+
+                    <p class="post-meta">Posted by <a href="#">cornerkicker</a></p>
+                </div>
+                <hr/>
+
+                <div class="post-preview">
+                    <a href="#">
+                        <h2 class="post-title">
+                            Spring boot is great
+                        </h2>
+                    </a>
+
+                    <p class="post-meta">Posted by <a href="#">arcelan</a></p>
+                </div>
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <a href="#">Older Posts &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div th:include="home/footer"></div>
+</body>
+
+</html>
