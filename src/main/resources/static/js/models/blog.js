@@ -1,19 +1,19 @@
 /*global define*/
 define([
-	'underscore',
-	'backbone'
+    'underscore',
+    'backbone'
 ], function (_, Backbone) {
-	'use strict';
+    'use strict';
 
-	var Blog = Backbone.Model.extend({
-	    urlRoot: 'api',
-	    url: 'blog/all',
-		// Default attributes for the blog
-		defaults: {
-			title: '',
-			content: ''
-		}
-	});
+    var Blog = Backbone.Model.extend({
+        urlRoot: 'api',
+        url: 'blog/all',
+        // Default attributes for the blog
+        defaults: {
+            title: '',
+            content: ''
+        }
+    });
 
-	return Blog;
+    return Blog;
 });
