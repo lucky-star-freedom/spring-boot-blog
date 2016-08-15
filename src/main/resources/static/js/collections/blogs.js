@@ -9,7 +9,7 @@ define([
     var BlogsCollection = Backbone.Collection.extend({
         // Reference to this collection's model.
         model: Blog,
-        url: 'api/blog/all'
+        url: 'api/blogs'
     });
 
     return new BlogsCollection();

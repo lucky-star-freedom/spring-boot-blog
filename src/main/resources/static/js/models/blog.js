@@ -7,7 +7,7 @@ define([
 
     var Blog = Backbone.Model.extend({
         urlRoot: 'api',
-        url: 'blog/all',
+        url: 'api/blogs',
         // Default attributes for the blog
         defaults: {
             title: '',
