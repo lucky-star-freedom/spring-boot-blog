@@ -27,7 +27,7 @@ public class BlogApi {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public void insertBlog(Blog blog) {
-         blogService.insert(blog);
+    public Blog insertBlog(Blog blog) {
+         return blogService.insert(blog);
     }
 }
