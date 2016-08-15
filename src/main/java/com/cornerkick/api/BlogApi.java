@@ -3,9 +3,7 @@ package com.cornerkick.api;
 import com.cornerkick.domain.Blog;
 import com.cornerkick.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,7 +25,7 @@ public class BlogApi {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public Blog insertBlog(Blog blog) {
+    public Blog insertBlog(@RequestBody Blog blog) {
          return blogService.insert(blog);
     }
 }
