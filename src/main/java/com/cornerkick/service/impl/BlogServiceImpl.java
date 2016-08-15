@@ -20,4 +20,9 @@ public class BlogServiceImpl implements BlogService {
     public List<Blog> queryAll() {
         return blogDao.findAll();
     }
+
+    @Override
+    public Blog insert(Blog blog) {
+        return blogDao.save(blog);
+    }
 }

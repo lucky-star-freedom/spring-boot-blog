@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface BlogService {
     List<Blog> queryAll();
+
+    Blog insert(Blog blog);
 }
