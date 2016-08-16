@@ -21,9 +21,12 @@ public class BlogApi {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<Blog> getAllBlogs() {
-        List<Blog> blogList = blogService.queryAll();
+        return blogService.queryAll();
+    }
 
-        return blogList;
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    public Blog getBlogById(@PathVariable Long id) {
+        return blogService.queryById(id);
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
@@ -33,8 +36,7 @@ public class BlogApi {
 
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
     public MessageDto deleteBlog(@PathVariable Long id) {
-        MessageDto messageDto = blogService.deleteById(id);
-        return messageDto;
+        return blogService.deleteById(id);
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)

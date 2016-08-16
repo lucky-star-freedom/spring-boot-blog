@@ -16,4 +16,6 @@ public interface BlogService {
     MessageDto deleteById(long id);
 
     Blog update(long id, Blog blog);
+
+    Blog queryById(long id);
 }

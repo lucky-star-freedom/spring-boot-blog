@@ -45,4 +45,9 @@ public class BlogServiceImpl implements BlogService {
 
         return blogDao.save(updateBlog);
     }
+
+    @Override
+    public Blog queryById(long id) {
+        return blogDao.findOne(id);
+    }
 }
