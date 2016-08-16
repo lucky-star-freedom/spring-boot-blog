@@ -18,14 +18,6 @@ define([
             content: ''
         },
 
-        initialize: function () {
-            this.listenTo(this, 'invalid', this.invalidProc);
-        },
-
-        invalidProc: function (model, error) {
-            console.log(error);
-        },
-
         validate: function (attrs) {
             for (var key in attrs) {
                 if (attrs[key] === '') {

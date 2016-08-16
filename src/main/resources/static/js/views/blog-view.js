@@ -25,7 +25,9 @@ define([
         initialize: function () {
             this.listenTo(this.model, 'change', this.render);
             this.listenTo(this.model, 'destroy', this.remove);
+            this.listenTo(this.model, 'invalid', this.invalidProc);
         },
+
 
         // Re-render the titles of the blog item.
         render: function () {
@@ -45,6 +47,10 @@ define([
             var title = this.$inputTitle.val().trim();
             var content = this.$inputContent.val().trim();
             this.model.save({title: title, content: content}, {wait: true});
+        },
+
+        invalidProc: function (model, error) {
+            console.log(error);
         }
     });
 
