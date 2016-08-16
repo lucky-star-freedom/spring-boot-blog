@@ -1,6 +1,7 @@
 package com.cornerkick.service;
 
 import com.cornerkick.domain.Blog;
+import com.cornerkick.dto.MessageDto;
 
 import java.util.List;
 
@@ -12,5 +13,7 @@ public interface BlogService {
 
     Blog insert(Blog blog);
 
-    void deleteById(long id);
+    MessageDto deleteById(long id);
+
+    Blog update(long id, Blog blog);
 }

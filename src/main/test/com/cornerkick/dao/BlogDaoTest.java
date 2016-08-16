@@ -41,9 +41,9 @@ public class BlogDaoTest {
     }
 
     @Test
-    public void testDeleteById() {
-        long id = 8;
-
-        blogDao.delete(id);
+    public void testUpdate() {
+        long id = 3;
+        Blog blog = blogDao.findOne(id);
+        System.out.println(blog.getContent());
     }
 }
