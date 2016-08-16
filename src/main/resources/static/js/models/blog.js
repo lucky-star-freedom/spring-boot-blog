@@ -8,7 +8,9 @@ define([
     var Blog = Backbone.Model.extend({
 
         // ajax url
-        url: 'api/blogs',
+        urlRoot: 'api/blogs',
+
+        idAttribute: 'id',
 
         // Default attributes for the blog
         defaults: {

@@ -36,11 +36,10 @@ define([
 
         // Remove the item, destroy the model from *back end* and delete its view.
         clear: function () {
-            this.model.destroy();
+            this.model.destroy({wait: true});
         },
 
         consoleOutput: function () {
-            console.log("you are click view");
         }
     });
 
