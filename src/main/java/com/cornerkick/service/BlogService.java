@@ -11,4 +11,6 @@ public interface BlogService {
     List<Blog> queryAll();
 
     Blog insert(Blog blog);
+
+    void deleteById(long id);
 }

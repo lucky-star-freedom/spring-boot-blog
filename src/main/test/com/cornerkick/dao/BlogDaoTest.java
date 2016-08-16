@@ -39,4 +39,11 @@ public class BlogDaoTest {
             System.out.println(blog.getId() + ", " + blog.getTitle());
         }
     }
+
+    @Test
+    public void testDeleteById() {
+        long id = 8;
+
+        blogDao.delete(id);
+    }
 }

@@ -6,6 +6,7 @@ import com.cornerkick.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,6 +24,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public Blog insert(Blog blog) {
+        blog.setCreatedAt(new Date());
         return blogDao.save(blog);
     }
 }
