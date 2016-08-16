@@ -6,7 +6,6 @@ define([
     'use strict';
 
     var Blog = Backbone.Model.extend({
-        urlRoot: 'api',
         url: 'api/blogs',
         // Default attributes for the blog
         defaults: {
