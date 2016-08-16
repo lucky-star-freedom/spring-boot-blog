@@ -3,16 +3,15 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'mustache',
     'text!templates/blogs.html',
     'common'
-], function ($, _, Backbone, blogsTemplate, Common) {
+], function ($, _, Backbone, Mustache, blogsTemplate, Common) {
     'use strict';
 
     var BlogView = Backbone.View.extend({
 
         tagName: 'li',
-
-        template: _.template(blogsTemplate),
 
         // The DOM events specific to an item.
         events: {
@@ -30,7 +29,7 @@ define([
 
         // Re-render the titles of the todo item.
         render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
+            this.$el.html(Mustache.render(blogsTemplate, this.model.toJSON()));
 
             return this;
         },

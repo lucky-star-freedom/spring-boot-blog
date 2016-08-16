@@ -15,12 +15,16 @@ require.config({
                 'jquery'
             ],
             exports: 'Backbone'
+        },
+        mustache: {
+            exports: 'Mustache'
         }
     },
     paths: {
         jquery: '../vendor/jquery/jquery',
         underscore: '../vendor/underscore/underscore',
         backbone: '../vendor/backbone/backbone',
+        mustache: '../vendor/mustache/mustache',
         text: '../vendor/requirejs-text/text'
     }
 });
