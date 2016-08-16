@@ -33,6 +33,7 @@ define([
             this.listenTo(Blogs, 'reset', this.addAll);
             this.listenTo(Blogs, 'sync', this.syncProc);
             this.listenTo(Blogs, 'error', this.errorProc);
+            this.listenTo(Blogs, 'invalid', this.invalidProc);
             this.listenTo(Blogs, 'all', _.debounce(this.render, 0));
 
             Blogs.fetch();
@@ -67,9 +68,7 @@ define([
 
         // If you hit return in the main input field, create new **Blog** model,
         createNewBlog: function () {
-            Blogs.create(this.newAttributes(), {wait: true});
-            this.$inputTitle.val('');
-            this.$inputContent.val('');
+            Blogs.create(this.newAttributes(), {wait: true, validate:true});
         },
 
         errorProc: function () {
@@ -78,6 +77,12 @@ define([
 
         syncProc: function () {
             console.log("syncProc");
+            this.$inputTitle.val('');
+            this.$inputContent.val('');
+        },
+
+        invalidProc: function (collection, error) {
+            console.log(error);
         }
     });
 
