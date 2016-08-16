@@ -26,7 +26,7 @@ define([
         // loading any preexisting blogs that might be saved in *back end*.
         initialize: function () {
             this.$blogList = this.$('#blog-list');
-            this.$inputTitle = this.$('#blog-tile');
+            this.$inputTitle = this.$('#blog-title');
             this.$inputContent = this.$('#blog-content');
 
             this.listenTo(Blogs, 'add', this.addOne);

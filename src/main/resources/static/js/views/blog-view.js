@@ -16,7 +16,7 @@ define([
         // The DOM events specific to an item.
         events: {
             'click .destroy': 'clear',
-            'click .view': 'consoleOutput'
+            'click .edit': 'edit'
         },
 
         // The BlogView listens for changes to its model, re-rendering. Since there's
@@ -27,10 +27,12 @@ define([
             this.listenTo(this.model, 'destroy', this.remove);
         },
 
-        // Re-render the titles of the todo item.
+        // Re-render the titles of the blog item.
         render: function () {
             this.$el.html(Mustache.render(blogsTemplate, this.model.toJSON()));
 
+            this.$inputTitle = this.$('.blog-title');
+            this.$inputContent = this.$('.blog-content');
             return this;
         },
 
@@ -39,7 +41,10 @@ define([
             this.model.destroy({wait: true});
         },
 
-        consoleOutput: function () {
+        edit: function () {
+            var title = this.$inputTitle.val().trim();
+            var content = this.$inputContent.val().trim();
+            this.model.save({title: title, content: content}, {wait: true});
         }
     });
 
