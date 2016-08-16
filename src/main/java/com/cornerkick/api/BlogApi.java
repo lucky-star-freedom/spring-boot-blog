@@ -28,7 +28,7 @@ public class BlogApi {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Blog insertBlog(@RequestBody Blog blog) {
-         return blogService.insert(blog);
+        return blogService.insert(blog);
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
@@ -38,15 +38,7 @@ public class BlogApi {
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
-    public Blog updateBlog(@PathVariable Long id,
-                           @RequestBody MultiValueMap<String,String> body) {
-        String title = body.getFirst("title");
-        String content = body.getFirst("content");
-        Blog blog = new Blog();
-        blog.setTitle(title);
-        blog.setContent(content);
-
-        Blog updatedBlog = blogService.update(id, blog);
-        return updatedBlog;
+    public Blog updateBlog(@PathVariable Long id, @RequestBody Blog blog) {
+        return blogService.update(id, blog);
     }
 }
