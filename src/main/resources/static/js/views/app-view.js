@@ -36,7 +36,7 @@ define([
             this.listenTo(Blogs, 'invalid', this.invalidProc);
             this.listenTo(Blogs, 'all', _.debounce(this.render, 0));
 
-            Blogs.fetch();
+            Blogs.fetch({reset: true});
         },
 
         // Re-rendering the App just means refreshing the statistics -- the rest
@@ -49,7 +49,7 @@ define([
         // appending its element to the `<ul>`.
         addOne: function (blog) {
             var view = new BlogView({model: blog});
-            this.$blogList.append(view.render().el);
+            this.$blogList.prepend(view.render().el);
         },
 
         // Add all items in the **Blogs** collection at once.
