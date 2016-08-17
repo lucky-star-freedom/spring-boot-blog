@@ -9,6 +9,9 @@ define([
     var BlogsCollection = Backbone.Collection.extend({
         // Reference to this collection's model.
         model: Blog,
+
+        // ajax url
+        // will replace model urlRoot when model inside of a collection
         url: 'api/blogs'
     });
 
