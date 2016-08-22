@@ -4,7 +4,7 @@ define([
     'underscore',
     'backbone',
     'mustache',
-    'text!templates/blogs.html',
+    'text!templates/blog-view.html',
     'common'
 ], function ($, _, Backbone, Mustache, blogsTemplate, Common) {
     'use strict';

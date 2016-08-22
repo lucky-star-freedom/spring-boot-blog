@@ -30,7 +30,7 @@ require.config({
 });
 
 require([
-    'views/app-view'
+    'views/blog-index'
 ], function (AppView) {
     // Initialize the application view
     new AppView();

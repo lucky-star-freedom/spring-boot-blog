@@ -14,7 +14,7 @@ define([
 
         // Instead of generating a new element, bind to the existing skeleton of
         // the App already present in the HTML.
-        el: '#blogapp',
+        el: '#blog-app',
 
         // Delegated events for creating new items, and clearing completed ones.
         events: {
