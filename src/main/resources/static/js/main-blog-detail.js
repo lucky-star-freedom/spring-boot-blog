@@ -31,9 +31,11 @@ require.config({
 
 require([
     'models/blog',
-    'views/blog-detail'
-], function (Blog, AppView) {
-    var blog = new Blog({id:2});
+    'views/blog-detail',
+    'common'
+], function (Blog, AppView, Common) {
+    // Fetch blog info by id
+    var blog = new Blog({id:Common.getValue("blogId")});
     blog.fetch()
 
     // Initialize the application view
