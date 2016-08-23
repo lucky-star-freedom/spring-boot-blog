@@ -35,7 +35,7 @@ require([
     'common'
 ], function (Blog, AppView, Common) {
     // Fetch blog info by id
-    var blog = new Blog({id:Common.getValue("blogId")});
+    var blog = new Blog({id: Common.getValue("blogId")});
     blog.fetch()
 
     // Initialize the application view

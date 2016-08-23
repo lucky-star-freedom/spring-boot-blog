@@ -4,36 +4,32 @@ define([
     'underscore',
     'backbone',
     'collections/blogs',
-    'views/blog-view',
+    'mustache',
+    'text!templates/blog-index.html',
     'common'
-], function ($, _, Backbone, Blogs, BlogView, Common) {
+], function ($, _, Backbone, Blogs, Mustache, blogsTemplate, Common) {
     'use strict';
 
-    // Our overall **AppView** is the top-level piece of UI.
-    var AppView = Backbone.View.extend({
+    // Our overall **BlogIndexView** is the top-level piece of UI.
+    var BlogIndexView = Backbone.View.extend({
 
         // Instead of generating a new element, bind to the existing skeleton of
         // the App already present in the HTML.
         el: '#blog-app',
 
         // Delegated events for creating new items, and clearing completed ones.
-        events: {
-            'click #new-blog': 'createNewBlog'
-        },
+        events: {},
 
         // At initialization we bind to the relevant events on the `Blogs`
         // collection, when items are added or changed. Kick things off by
         // loading any preexisting blogs that might be saved in *back end*.
         initialize: function () {
             this.$blogList = this.$('#blog-list');
-            this.$inputTitle = this.$('#blog-title');
-            this.$inputContent = this.$('#blog-content');
 
             this.listenTo(Blogs, 'add', this.addOne);
             this.listenTo(Blogs, 'reset', this.addAll);
             this.listenTo(Blogs, 'sync', this.syncProc);
             this.listenTo(Blogs, 'error', this.errorProc);
-            this.listenTo(Blogs, 'invalid', this.invalidProc);
             this.listenTo(Blogs, 'all', _.debounce(this.render, 0));
 
             Blogs.fetch({reset: true});
@@ -45,11 +41,13 @@ define([
 
         },
 
-        // Add a single blog item to the list by creating a view for it, and
-        // appending its element to the `<ul>`.
+        toHTML: function (model) {
+            return Mustache.render(blogsTemplate, model.toJSON());
+        },
+
+        // Add a single blog item to the list by creating a view for it
         addOne: function (blog) {
-            var view = new BlogView({model: blog});
-            this.$blogList.prepend(view.render().el);
+            this.$blogList.prepend(this.toHTML(blog));
         },
 
         // Add all items in the **Blogs** collection at once.
@@ -58,33 +56,14 @@ define([
             Blogs.each(this.addOne, this);
         },
 
-        // Generate the attributes for a new Blog item.
-        newAttributes: function () {
-            return {
-                title: this.$inputTitle.val().trim(),
-                content: this.$inputContent.val().trim()
-            };
-        },
-
-        // If you hit return in the main input field, create new **Blog** model,
-        createNewBlog: function () {
-            Blogs.create(this.newAttributes(), {wait: true, validate:true});
-        },
-
         errorProc: function () {
             console.log("errorProc");
         },
 
         syncProc: function () {
             console.log("syncProc");
-            this.$inputTitle.val('');
-            this.$inputContent.val('');
-        },
-
-        invalidProc: function (collection, error) {
-            console.log(error);
         }
     });
 
-    return AppView;
+    return BlogIndexView;
 });
