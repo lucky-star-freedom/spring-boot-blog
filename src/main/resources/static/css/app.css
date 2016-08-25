@@ -20,3 +20,8 @@ body {
     z-index: -1;
     opacity: .2;
 }
+
+#publish-btn {
+    float: right;
+    margin-bottom: 5px;
+}

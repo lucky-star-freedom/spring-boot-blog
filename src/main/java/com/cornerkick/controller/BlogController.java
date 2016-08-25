@@ -23,4 +23,10 @@ public class BlogController {
         model.addAttribute("blogId", id);
         return "blog/detail";
     }
+
+
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public String newBlog() {
+        return "blog/new";
+    }
 }

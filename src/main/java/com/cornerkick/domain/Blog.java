@@ -15,6 +15,8 @@ public class Blog {
     @Column(length = 200)
     private String title;
 
+    @Lob
+    @Column(columnDefinition="TEXT", length = 1000000)
     private String content;
 
     private int likes;
