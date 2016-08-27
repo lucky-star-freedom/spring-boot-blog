@@ -52,7 +52,6 @@ define([
 
         // Add all items in the **Blogs** collection at once.
         addAll: function () {
-            this.$blogList.empty();
             Blogs.each(this.addOne, this);
         },
 
