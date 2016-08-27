@@ -25,7 +25,8 @@ require.config({
         underscore: '../vendor/underscore/underscore',
         backbone: '../vendor/backbone/backbone',
         mustache: '../vendor/mustache/mustache',
-        text: '../vendor/requirejs-text/text'
+        text: '../vendor/requirejs-text/text',
+        common: 'utils/common'
     }
 });
 

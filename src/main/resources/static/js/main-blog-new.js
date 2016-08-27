@@ -18,30 +18,6 @@ require.config({
         },
         mustache: {
             exports: 'Mustache'
-        },
-        simModule: {
-            deps: [
-                'jquery'
-            ],
-            exports: 'SimModule'
-        },
-        simUploader: {
-            deps: [
-                'jquery'
-            ],
-            exports: 'SimUploader'
-        },
-        simHotkeys: {
-            deps: [
-                'jquery'
-            ],
-            exports: 'SimHotkeys'
-        },
-        simditor: {
-            deps: [
-                'jquery'
-            ],
-            exports: 'Simditor'
         }
     },
     paths: {
@@ -53,15 +29,15 @@ require.config({
         simModule: '../vendor/simditor/js/module',
         simUploader: '../vendor/simditor/js/uploader',
         simHotkeys: '../vendor/simditor/js/hotkeys',
-        simditor: '../vendor/simditor/js/simditor'
+        simditor: '../vendor/simditor/js/simditor',
+        common: 'utils/common'
     }
 });
 
 require([
     'models/blog',
-    'views/blog-new',
-    'common'
-], function (Blog, AppView, Common) {
+    'views/blog-new'
+], function (Blog, AppView) {
     // Initialize blog
     var blog = new Blog();
 
