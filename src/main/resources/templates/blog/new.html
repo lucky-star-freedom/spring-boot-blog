@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-        >
+>
 
 <head>
 
@@ -67,49 +67,20 @@
     </div>
     <!-- /.container -->
 </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h2 class="text-center">Write Something</h2>
 
-                <button class="btn btn-large btn-info" id="publish-btn">Save</button>
-                <div class="clearfix"></div>
-                <textarea id="editor" placeholder="Hello" autofocus="autofocus"></textarea>
-            </div>
+<div id="blog-new" class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h2 class="text-center">Write Something</h2>
+
+            <button class="btn btn-large btn-info" id="publish-btn">Save</button>
+            <div class="clearfix"></div>
+            <textarea id="editor" placeholder="Hello" autofocus="autofocus"></textarea>
         </div>
     </div>
+</div>
 
-<script type="text/javascript" src="../vendor/jquery/jquery.js"></script>
-<script type="text/javascript" src="../vendor/simditor/js/module.js"></script>
-<script type="text/javascript" src="../vendor/simditor/js/hotkeys.js"></script>
-<script type="text/javascript" src="../vendor/simditor/js/uploader.js"></script>
-<script type="text/javascript" src="../vendor/simditor/js/simditor.js"></script>
+<script data-main="../js/main-blog-new" src="../vendor/requirejs/require.js"></script>
 
-<script type="text/javascript">
-    var editor = new Simditor({
-        textarea: $('#editor'),
-        toolbar: [
-            'title',
-            'bold',
-            'italic',
-            'underline',
-            'color',
-            'ol',
-            'ul',
-            'blockquote',
-            'code',
-            'table',
-            'link',
-            'image',
-            'hr'
-        ]
-    });
-
-    var $publishBtn = $('#publish-btn');
-    $publishBtn.on('click', function () {
-        var content = editor.getValue();
-        console.log(content);
-    });
-</script>
 </body>
 </html>

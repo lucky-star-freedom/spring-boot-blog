@@ -18,6 +18,30 @@ require.config({
         },
         mustache: {
             exports: 'Mustache'
+        },
+        simModule: {
+            deps: [
+                'jquery'
+            ],
+            exports: 'SimModule'
+        },
+        simUploader: {
+            deps: [
+                'jquery'
+            ],
+            exports: 'SimUploader'
+        },
+        simHotkeys: {
+            deps: [
+                'jquery'
+            ],
+            exports: 'SimHotkeys'
+        },
+        simditor: {
+            deps: [
+                'jquery'
+            ],
+            exports: 'Simditor'
         }
     },
     paths: {
@@ -25,18 +49,21 @@ require.config({
         underscore: '../vendor/underscore/underscore',
         backbone: '../vendor/backbone/backbone',
         mustache: '../vendor/mustache/mustache',
-        text: '../vendor/requirejs-text/text'
+        text: '../vendor/requirejs-text/text',
+        simModule: '../vendor/simditor/js/module',
+        simUploader: '../vendor/simditor/js/uploader',
+        simHotkeys: '../vendor/simditor/js/hotkeys',
+        simditor: '../vendor/simditor/js/simditor'
     }
 });
 
 require([
     'models/blog',
-    'views/blog-detail',
+    'views/blog-new',
     'common'
 ], function (Blog, AppView, Common) {
-    // Fetch blog info by id
-    var blog = new Blog({id: Common.getValue("blogId")});
-    blog.fetch();
+    // Initialize blog
+    var blog = new Blog();
 
     // Initialize the application view
     new AppView({model: blog});
