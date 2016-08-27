@@ -39,8 +39,6 @@ define([
                 } : false
             });
 
-            this.listenTo(this.model, 'sync', this.syncProc);
-            this.listenTo(this.model, 'error', this.errorProc);
             this.listenTo(this.model, 'all', _.debounce(this.render, 0));
         },
 
@@ -51,6 +49,9 @@ define([
         },
 
         newBlog: function () {
+            this.listenTo(this.model, 'sync', this.syncProc);
+            this.listenTo(this.model, 'error', this.errorProc);
+
             var title = 'backboneJS';
             var content = this.editor.getValue();
             this.model.save({title: title, content: content}, {wait: true});
@@ -63,6 +64,7 @@ define([
 
         syncProc: function () {
             console.log("syncProc");
+            window.location.href = "/blogs";
         }
     });
 
