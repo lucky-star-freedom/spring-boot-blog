@@ -24,9 +24,14 @@ public class BlogController {
         return "blog/detail";
     }
 
-
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String newBlog() {
         return "blog/new";
+    }
+
+    @RequestMapping(value = "{id}/edit", method = RequestMethod.GET)
+    public String update(@PathVariable Long id, Model model) {
+        model.addAttribute("blogId", id);
+        return "blog/edit";
     }
 }

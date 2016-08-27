@@ -28,8 +28,6 @@ define([
         // Re-render the titles of the blog item.
         render: function () {
             this.$el.html(Mustache.render(blogsTemplate, this.model.toJSON()));
-
-            return this;
         }
     });
 
