@@ -2,7 +2,7 @@
 define([
     'underscore',
     'backbone',
-    'models/blog'
+    '../models/blog'
 ], function (_, Backbone, Blog) {
     'use strict';
 

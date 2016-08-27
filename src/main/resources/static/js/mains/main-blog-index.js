@@ -21,24 +21,18 @@ require.config({
         }
     },
     paths: {
-        jquery: '../vendor/jquery/jquery',
-        underscore: '../vendor/underscore/underscore',
-        backbone: '../vendor/backbone/backbone',
-        mustache: '../vendor/mustache/mustache',
-        text: '../vendor/requirejs-text/text',
-        common: 'utils/common'
+        jquery: '../../vendor/jquery/jquery',
+        underscore: '../../vendor/underscore/underscore',
+        backbone: '../../vendor/backbone/backbone',
+        mustache: '../../vendor/mustache/mustache',
+        text: '../../vendor/requirejs-text/text',
+        common: '../utils/common'
     }
 });
 
 require([
-    'models/blog',
-    'views/blog-detail',
-    'common'
-], function (Blog, AppView, Common) {
-    // Fetch blog info by id
-    var blog = new Blog({id: Common.getValue("blogId")});
-    blog.fetch();
-
+    '../views/blog-index'
+], function (AppView) {
     // Initialize the application view
-    new AppView({model: blog});
+    new AppView();
 });

@@ -3,9 +3,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'collections/blogs',
+    '../collections/blogs',
     'mustache',
-    'text!templates/blog-index.html',
+    'text!../templates/blog-index.html',
     'common'
 ], function ($, _, Backbone, Blogs, Mustache, blogsTemplate, Common) {
     'use strict';

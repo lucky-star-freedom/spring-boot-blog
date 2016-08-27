@@ -21,22 +21,22 @@ require.config({
         }
     },
     paths: {
-        jquery: '../vendor/jquery/jquery',
-        underscore: '../vendor/underscore/underscore',
-        backbone: '../vendor/backbone/backbone',
-        mustache: '../vendor/mustache/mustache',
-        text: '../vendor/requirejs-text/text',
-        simModule: '../vendor/simditor/js/module',
-        simUploader: '../vendor/simditor/js/uploader',
-        simHotkeys: '../vendor/simditor/js/hotkeys',
-        simditor: '../vendor/simditor/js/simditor',
-        common: 'utils/common'
+        jquery: '../../vendor/jquery/jquery',
+        underscore: '../../vendor/underscore/underscore',
+        backbone: '../../vendor/backbone/backbone',
+        mustache: '../../vendor/mustache/mustache',
+        text: '../../vendor/requirejs-text/text',
+        simModule: '../../vendor/simditor/js/module',
+        simUploader: '../../vendor/simditor/js/uploader',
+        simHotkeys: '../../vendor/simditor/js/hotkeys',
+        simditor: '../../vendor/simditor/js/simditor',
+        common: '../utils/common'
     }
 });
 
 require([
-    'models/blog',
-    'views/blog-new'
+    '../models/blog',
+    '../views/blog-new'
 ], function (Blog, AppView) {
     // Initialize blog
     var blog = new Blog();
