@@ -20,7 +20,7 @@ define([
 
         // Delegated events for creating new items, and clearing completed ones.
         events: {
-            'click #publish-btn': 'editBlog'
+            'click #edit-btn': 'editBlog'
         },
 
         // The BlogEditView listens for changes to its model, re-rendering. Since there's
@@ -40,6 +40,7 @@ define([
             });
 
             this.listenTo(this.model, 'change', this.setSimditor);
+            this.listenTo(this.model, 'invalid', this.invalidProc);
             this.listenTo(this.model, 'all', _.debounce(this.render, 0));
         },
 
@@ -70,6 +71,10 @@ define([
         syncProc: function () {
             console.log("syncProc");
             window.location.href = "/blogs";
+        },
+
+        invalidProc: function (model, error) {
+            console.log(error);
         }
     });
 

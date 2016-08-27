@@ -39,6 +39,7 @@ define([
                 } : false
             });
 
+            this.listenTo(this.model, 'invalid', this.invalidProc);
             this.listenTo(this.model, 'all', _.debounce(this.render, 0));
         },
 
@@ -65,6 +66,10 @@ define([
         syncProc: function () {
             console.log("syncProc");
             window.location.href = "/blogs";
+        },
+
+        invalidProc: function (model, error) {
+            console.log(error);
         }
     });
 

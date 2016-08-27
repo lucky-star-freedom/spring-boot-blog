@@ -21,7 +21,7 @@ body {
     opacity: .2;
 }
 
-#publish-btn {
+#publish-btn, #edit-btn {
     float: right;
     margin-bottom: 5px;
 }
