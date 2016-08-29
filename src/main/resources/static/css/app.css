@@ -27,12 +27,13 @@ body {
 }
 
 .post-title-input {
+    width: 100%;
     font-size: 18px;
-    text-align: center;
-    border: none;
     height: 40px;
     line-height: 26px;
-    width: 100%;
+    text-align: center;
+    border: none;
+    outline: none;
 }
 
 .post-creator-header {
