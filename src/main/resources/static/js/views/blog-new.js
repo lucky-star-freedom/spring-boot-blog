@@ -27,6 +27,8 @@ define([
         // a one-to-one correspondence between a **Blog** and a **BlogNewView** in this
         // app, we set a direct reference on the model for convenience.
         initialize: function () {
+            this.$blogTitle = this.$('#blog-title');
+
             // Initialize simditor
             var toolbar = ['title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent', 'alignment'];
             this.editor = new Simditor({
@@ -53,7 +55,7 @@ define([
             this.listenTo(this.model, 'sync', this.syncProc);
             this.listenTo(this.model, 'error', this.errorProc);
 
-            var title = 'backboneJS';
+            var title = this.$blogTitle.val();
             var content = this.editor.getValue();
             this.model.save({title: title, content: content}, {wait: true});
             console.log(content);
