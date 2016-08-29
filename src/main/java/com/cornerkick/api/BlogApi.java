@@ -4,7 +4,6 @@ import com.cornerkick.domain.Blog;
 import com.cornerkick.dto.MessageDto;
 import com.cornerkick.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

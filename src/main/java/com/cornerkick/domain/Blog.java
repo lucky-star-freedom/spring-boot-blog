@@ -1,5 +1,8 @@
 package com.cornerkick.domain;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -12,11 +15,14 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(length = 200)
+    @Column(length = 80)
+    @NotEmpty(message = "{NotEmpty.blog.title}")
+    @Length(max = 80)
     private String title;
 
     @Lob
-    @Column(columnDefinition="TEXT", length = 1000000)
+    @Column(columnDefinition="TEXT", length = 100000)
+    @NotEmpty()
     private String content;
 
     private int likes;
