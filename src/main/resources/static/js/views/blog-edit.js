@@ -73,7 +73,7 @@ define([
 
         syncProc: function () {
             console.log("syncProc");
-            window.location.href = "/blogs";
+            window.location.href = Common.BLOG_HOMR_URL;
         },
 
         invalidProc: function (model, error) {

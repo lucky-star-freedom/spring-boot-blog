@@ -32,7 +32,7 @@ define([
             this.listenTo(Blogs, 'error', this.errorProc);
             this.listenTo(Blogs, 'all', _.debounce(this.render, 0));
 
-            Blogs.fetch({reset: true});
+            Blogs.fetch({reset: true, data: {page: 0, size: Common.BLOG_PAGE_SIZE}});
         },
 
         // Re-rendering the App just means refreshing the statistics -- the rest
