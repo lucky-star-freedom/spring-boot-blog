@@ -5,6 +5,10 @@ import com.cornerkick.domain.Blog;
 import com.cornerkick.dto.MessageDto;
 import com.cornerkick.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,9 +21,15 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private BlogDao blogDao;
 
+    private Sort sortById = new Sort(Sort.Direction.ASC, "id");
+
+
     @Override
-    public List<Blog> queryAll() {
-        return blogDao.findAll();
+    public List<Blog> findByPage(int pageNum, int size) {
+        Pageable pageable = new PageRequest(pageNum, size, sortById);
+        Page<Blog> blogPage = blogDao.findAll(pageable);
+
+        return blogPage.getContent();
     }
 
     @Override

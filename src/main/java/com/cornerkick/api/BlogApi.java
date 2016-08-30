@@ -19,8 +19,9 @@ public class BlogApi {
     private BlogService blogService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public List<Blog> getAllBlogs() {
-        return blogService.queryAll();
+    public List<Blog> getBlogsByPage(@RequestParam(value = "page", defaultValue = "0") int page,
+                                     @RequestParam(value = "size", defaultValue = "10") int size) {
+        return blogService.findByPage(page, size);
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)

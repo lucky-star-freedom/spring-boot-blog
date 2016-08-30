@@ -9,7 +9,8 @@ import java.util.List;
  * Created by cornerkick on 16/8/11.
  */
 public interface BlogService {
-    List<Blog> queryAll();
+
+    List<Blog> findByPage(int pageNum, int size);
 
     Blog insert(Blog blog);
 
