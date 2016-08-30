@@ -23,7 +23,7 @@ body {
 
 #publish-btn, #edit-btn {
     float: right;
-    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .post-title-input {
