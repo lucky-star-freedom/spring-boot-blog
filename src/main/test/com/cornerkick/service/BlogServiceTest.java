@@ -2,7 +2,6 @@ package com.cornerkick.service;
 
 import com.cornerkick.App;
 import com.cornerkick.domain.Blog;
-import com.cornerkick.domain.User;
 import com.cornerkick.dto.MessageDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +10,6 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by cornerkick on 16/8/8.
@@ -22,15 +20,6 @@ public class BlogServiceTest {
 
     @Autowired
     private BlogService blogService;
-
-    @Test
-    public void testGetAll() throws Exception {
-        List<Blog> blogList = blogService.queryAll();
-
-        for (Blog blog: blogList) {
-            System.out.println(blog.getId() + ", " + blog.getTitle());
-        }
-    }
 
     @Test
     public void testInsert() {

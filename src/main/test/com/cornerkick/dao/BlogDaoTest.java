@@ -6,6 +6,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.validation.ConstraintViolationException;
@@ -24,21 +28,30 @@ public class BlogDaoTest {
 
     @Test
     public void testInsertDummy() {
-        Blog blog = new Blog();
-        blog.setTitle("test Blog");
-        blog.setContent("test Blog content");
-        blog.setCreatedAt(new Date());
+        long now = new Date().getTime();
+        for (int i = 0; i < 21; i++) {
+            now = now - 10000L;
+            Blog blog = new Blog();
+            blog.setTitle("title " + i);
+            blog.setContent("content " + i);
+            blog.setCreatedAt(new Date(now));
 
-        blogDao.save(blog);
+            blogDao.save(blog);
+        }
     }
 
     @Test
-    public void testFindAll() {
-        List<Blog> blogList = blogDao.findAll();
+    public void testFindByPage() {
+        int page = 1;
+        int size = 10;
+        Sort sort = new Sort(Sort.Direction.ASC, "id");
+        Pageable pageable = new PageRequest(page, size, sort);
 
-        for (Blog blog: blogList) {
-            System.out.println(blog.getId() + ", " + blog.getTitle());
-        }
+        Page<Blog> blogPage = blogDao.findAll(pageable);
+
+        List<Blog> secondPageBlogs = blogPage.getContent();
+        Blog firstBlog = secondPageBlogs.get(0);
+        System.out.println(firstBlog.getId());
     }
 
     @Test
