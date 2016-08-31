@@ -12,9 +12,7 @@ define([
 
         // ajax url
         // will replace model urlRoot when model inside of a collection
-        url: '/api/blogs',
-
-        comparator: 'id'
+        url: '/api/blogs'
     });
 
     return new BlogsCollection();

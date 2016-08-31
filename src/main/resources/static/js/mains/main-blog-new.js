@@ -30,6 +30,7 @@ require.config({
         simUploader: '../../vendor/simditor/js/uploader',
         simHotkeys: '../../vendor/simditor/js/hotkeys',
         simditor: '../../vendor/simditor/js/simditor',
+        moment: '/vendor/moment/moment',
         common: '../utils/common'
     }
 });

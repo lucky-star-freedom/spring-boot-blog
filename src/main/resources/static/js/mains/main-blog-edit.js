@@ -30,6 +30,7 @@ require.config({
         simUploader: '../../vendor/simditor/js/uploader',
         simHotkeys: '../../vendor/simditor/js/hotkeys',
         simditor: '../../vendor/simditor/js/simditor',
+        moment: '/vendor/moment/moment',
         common: '../utils/common'
     }
 });
@@ -40,7 +41,7 @@ require([
     'common'
 ], function (Blog, AppView, Common) {
     // Fetch blog info by id
-    var blog = new Blog({id: Common.getValue("blogId")});
+    var blog = new Blog({id: Common.getHiddenValue("blogId")});
     blog.fetch();
 
     // Initialize the application view

@@ -25,6 +25,7 @@ define([
         // loading any preexisting blogs that might be saved in *back end*.
         initialize: function () {
             this.$blogList = this.$('#blog-list');
+            this.$olderPost = this.$blogList.find('ul');
 
             this.listenTo(Blogs, 'add', this.addOne);
             this.listenTo(Blogs, 'reset', this.addAll);
@@ -42,16 +43,23 @@ define([
         },
 
         toHTML: function (model) {
-            return Mustache.render(blogsTemplate, model.toJSON());
+            var params = {};
+            params.id = model.get('id');
+            params.title = model.get('title');
+            params.content = model.get('content');
+            params.createdAt = Common.getDateString(model.get('createdAt'));
+            params.fromNow = Common.getTimeFromNow(model.get('createdAt'));
+            return Mustache.render(blogsTemplate, params);
         },
 
         // Add a single blog item to the list by creating a view for it
         addOne: function (blog) {
-            this.$blogList.prepend(this.toHTML(blog));
+            this.$olderPost.before(this.toHTML(blog));
         },
 
         // Add all items in the **Blogs** collection at once.
         addAll: function () {
+            console.log(Blogs);
             Blogs.each(this.addOne, this);
         },
 

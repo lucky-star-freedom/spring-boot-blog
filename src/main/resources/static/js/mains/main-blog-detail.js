@@ -26,6 +26,7 @@ require.config({
         backbone: '../../vendor/backbone/backbone',
         mustache: '../../vendor/mustache/mustache',
         text: '../../vendor/requirejs-text/text',
+        moment: '/vendor/moment/moment',
         common: '../utils/common'
     }
 });
@@ -36,7 +37,7 @@ require([
     'common'
 ], function (Blog, AppView, Common) {
     // Fetch blog info by id
-    var blog = new Blog({id: Common.getValue("blogId")});
+    var blog = new Blog({id: Common.getHiddenValue("blogId")});
     blog.fetch();
 
     // Initialize the application view

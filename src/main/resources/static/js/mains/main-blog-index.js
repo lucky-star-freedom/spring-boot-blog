@@ -26,6 +26,7 @@ require.config({
         backbone: '../../vendor/backbone/backbone',
         mustache: '../../vendor/mustache/mustache',
         text: '../../vendor/requirejs-text/text',
+        moment: '/vendor/moment/moment',
         common: '../utils/common'
     }
 });
