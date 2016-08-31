@@ -3,9 +3,12 @@ package com.cornerkick.api;
 import com.cornerkick.domain.Blog;
 import com.cornerkick.dto.MessageDto;
 import com.cornerkick.service.BlogService;
+import com.cornerkick.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -17,6 +20,9 @@ public class BlogApi {
 
     @Autowired
     private BlogService blogService;
+
+    @Autowired
+    private UploadService uploadService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<Blog> getBlogsByPage(@RequestParam(value = "page", defaultValue = "0") int page,
@@ -42,5 +48,11 @@ public class BlogApi {
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
     public Blog updateBlog(@PathVariable Long id, @RequestBody Blog blog) {
         return blogService.update(id, blog);
+    }
+
+    @RequestMapping(value = "upload", method = RequestMethod.POST)
+    public MessageDto upload(@RequestParam("upload_file") MultipartFile file) throws IOException {
+        MessageDto messageDto = uploadService.uploadImage(file);
+        return messageDto;
     }
 }

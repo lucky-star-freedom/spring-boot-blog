@@ -36,9 +36,9 @@ define([
                 placeholder: '这里输入文字...',
                 toolbar: toolbar,
                 pasteImage: true,
-                upload: location.search === '?upload' ? {
-                    url: '/upload'
-                } : false
+                upload: {
+                    url: '/api/blogs/upload'
+                }
             });
 
             this.listenTo(this.model, 'invalid', this.invalidProc);
