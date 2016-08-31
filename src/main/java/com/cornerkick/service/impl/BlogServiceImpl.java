@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,12 +22,12 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private BlogDao blogDao;
 
-    private Sort sortById = new Sort(Sort.Direction.ASC, "id");
+    private Sort sortByCreatedAt = new Sort(Sort.Direction.DESC, "createdAt");
 
 
     @Override
     public List<Blog> findByPage(int pageNum, int size) {
-        Pageable pageable = new PageRequest(pageNum, size, sortById);
+        Pageable pageable = new PageRequest(pageNum, size, sortByCreatedAt);
         Page<Blog> blogPage = blogDao.findAll(pageable);
 
         return blogPage.getContent();
@@ -34,6 +35,10 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public Blog insert(Blog blog) {
+        Date now = new Date();
+        blog.setCreatedAt(now);
+        blog.setUpdatedAt(now);
+
         return blogDao.save(blog);
     }
 
@@ -52,6 +57,7 @@ public class BlogServiceImpl implements BlogService {
 
         updateBlog.setTitle(blog.getTitle());
         updateBlog.setContent(blog.getContent());
+        updateBlog.setUpdatedAt(new Date());
 
         return blogDao.save(updateBlog);
     }

@@ -29,6 +29,8 @@ public class Blog {
 
     private Date createdAt;
 
+    private Date updatedAt;
+
     @ManyToOne
     private User user;
 
@@ -78,5 +80,13 @@ public class Blog {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
